@@ -43,5 +43,6 @@ int 	main()
 	s2 = "Hi all!";
 	ft_strcpy(s1, s2);
 	ft_putstr(s1);
+	ft_putstr("\n OK");
 	return (0);
 }
