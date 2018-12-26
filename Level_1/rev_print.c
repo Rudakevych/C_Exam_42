@@ -21,3 +21,41 @@
 	$
  */
 
+#include <unistd.h>
+
+int 	ft_strlen(char *str)
+{
+	int 	len;
+	int		i;
+
+	len = 0;
+	i = 0;
+	while(str[i])
+	{
+		len++;
+		i++;
+	}
+	return (len);
+}
+
+void	rev_print(char *str)
+{
+	int 	str_len;
+	int		i;
+
+	str_len = ft_strlen(str);
+	i = str_len - 1;
+	while (i >= 0)
+	{
+		write(1, &str[i], 1);
+		i--;
+	}
+}
+
+int 	main(int ac, char **av)
+{
+	if (ac == 2)
+		rev_print(&av[1][0]);
+	write(1, "\n", 1);
+	return (0);
+}
