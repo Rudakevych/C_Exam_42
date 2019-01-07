@@ -30,12 +30,32 @@ $>
 
 #include <unistd.h>
 
-void    str_capitalizer(char *str)
+void    str_capitalizer(const char *str)
 {
+    int i;
 
+    i = 0;
+    while (str[i])
+        i++;
+    while (str[i])
+    {
+
+        i++;
+    }
 }
 
 int     main(int ac, char **av)
 {
+    int i;
 
+    i = 1;
+    if (ac > 1)
+    {
+        while(ac > i)
+        {
+            str_capitalizer(&av[i][0]);
+            i++;
+        }
+    }
+    write(1, "\n", 1);
 }
