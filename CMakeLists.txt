@@ -3,4 +3,4 @@ project(C_Exam_42 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(C_Exam_42 Level_1/search_and_replace.c Level_3/paramsum.c)
+add_executable(C_Exam_42 Level_3/str_capitalizer.c)

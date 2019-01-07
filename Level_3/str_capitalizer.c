@@ -23,9 +23,19 @@ $> ./str_capitalizer "Premier PETIT TesT" | cat -e
 Premier Petit Test$
 $> ./str_capitalizer "DeuxiEmE tEST uN PEU moinS  facile" "   attention C'EST pas dur QUAND mEmE" "ALLer UN DeRNier 0123456789pour LA rouTE    E " | cat -e
 Deuxieme Test Un Peu Moins  Facile$
-   Attention C'est Pas Dur Quand Meme$
+Attention C'est Pas Dur Quand Meme$
 Aller Un Dernier 0123456789pour La Route    E $
 $>
 */
 
+#include <unistd.h>
 
+void    str_capitalizer(char *str)
+{
+
+}
+
+int     main(int ac, char **av)
+{
+
+}
