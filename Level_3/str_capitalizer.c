@@ -28,18 +28,49 @@ Aller Un Dernier 0123456789pour La Route    E $
 $>
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #include <unistd.h>
+
+void    ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
 
 void    str_capitalizer(const char *str)
 {
     int i;
+    int flag;
 
     i = 0;
+    flag = 1;
     while (str[i])
         i++;
     while (str[i])
     {
+        if (str[i] < 141)
 
+        if (str[i - 1] == ' ' || str[i - 1] == '\t')
+        {
+            str[i] = str[i] +
+        }
         i++;
     }
 }
