@@ -1,3 +1,5 @@
+/**
+
 Assignment name  : ft_list_foreach
 Expected files   : ft_list_foreach.c, ft_list.h
 Allowed functions:
@@ -22,3 +24,20 @@ typedef struct    s_list
     struct s_list *next;
     void          *data;
 }                 t_list;
+ */
+
+
+
+#include "ft_list.h"
+
+void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+	t_list *head_node;
+
+	head_node = begin_list;
+	while (head_node)
+	{
+		(*f)(head_node->data);
+		head_node = head_node->next;
+	}
+}
