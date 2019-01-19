@@ -1,3 +1,46 @@
+/**
+	Assignment name  : sort_list
+	Expected files   : sort_list.c
+	Allowed functions:
+	--------------------------------------------------------------------------------
+
+	Write the following functions:
+
+	t_list	*sort_list(t_list* lst, int (*cmp)(int, int));
+
+	This function must sort the list given as a parameter, using the function
+	pointer cmp to select the order to apply, and returns a pointer to the
+	first element of the sorted list.
+
+	Duplications must remain.
+
+	Inputs will always be consistent.
+
+	You must use the type t_list described in the file list.h
+	that is provided to you. You must include that file
+	(#include "list.h"), but you must not turn it in. We will use our own
+	to compile your assignment.
+
+	Functions passed as cmp will always return a value different from
+	0 if a and b are in the right order, 0 otherwise.
+
+	For example, the following function used as cmp will sort the list
+	in ascending order:
+
+	int ascending(int a, int b)
+	{
+		return (a <= b);
+	}
+	--------------------------------------------------------------------------------
+	typedef struct s_list t_list;
+
+	struct s_list
+	{
+		int     data;
+		t_list  *next;
+	};
+
+ */
 
 #include "list.h"
 
@@ -22,8 +65,8 @@ int		ft_is_diff(t_list *lst, int (*cmp)(int, int))
 
 t_list 	*sort_list(t_list *lst, int (*cmp)(int, int))
 {
-	t_list *first;
-	int swap;
+	t_list	*first;
+	int		swap;
 
 	swap = 0;
 	first = lst;
@@ -44,17 +87,12 @@ t_list 	*sort_list(t_list *lst, int (*cmp)(int, int))
 	return (first);
 }
 
+#include <stdlib.h> //
+#include <stdio.h> //
 
-
-
-
-
-#include <stdlib.h>
-#include <stdio.h>
-
-int main(void)
+int		main(void) //
 {
-	t_list *lst;
+	t_list	*lst;
 
 	lst = (t_list*)malloc(sizeof(t_list));
 	lst->data = 20;
@@ -73,35 +111,3 @@ int main(void)
 	}
 	return (0);
 }
-
-
-/*
-
- static void		list_swap(t_list *l1, t_list *l2)
-{
-	int				tmp;
-
-	tmp = l1->data;
-	l1->data = l2->data;
-	l2->data = tmp;
-}
-
-t_list			*sort_list(t_list *lst, int (*cmp)(int, int))
-{
-	t_list			*tmp;
-
-	tmp = lst;
-	while (lst && lst->next)
-	{
-		if (cmp(lst->data, lst->next->data) == 0)
-		{
-			list_swap(lst, lst->next);
-			lst = tmp;
-		}
-		else
-			lst = lst->next;
-	}
-	return (tmp);
-}
-
-*/
