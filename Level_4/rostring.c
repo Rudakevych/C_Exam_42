@@ -47,7 +47,8 @@ char 	*write_first_word(char *str, int i)
 	while (str[tmp] != ' ' && str[tmp] != '\t')
 		tmp++;
 	first_word_len = tmp - i;
-	first_word = (char *)malloc(sizeof(char) * first_word_len + 1);
+	if (!(first_word = (char *)malloc(sizeof(char) * first_word_len + 1)))
+		return (NULL);
 	while (first_word_len > 0)
 	{
 		first_word[j] = str[i];
@@ -73,7 +74,9 @@ void	rostring(char *str)
 	second_part_len = 0;
 	while (str[i] == ' ' || str[i] == '\t')
 		i++;
-	first_word = write_first_word(str, i);
+	if (!(first_word = write_first_word(str, i)))
+		write(1, "ERROR: Can't allocate memory!", 29);
+	free(write_first_word(str, i));
 	while (str[i] != ' ' && str[i] != '\t')
 		i++;
 	while (str[i] == ' ' || str[i] == '\t')
@@ -107,6 +110,5 @@ int 	main(int ac, char **av)
 	if (ac == 2)
 		rostring(av[1]);
 	write(1, "\n", 1);
-//	system("leaks rostring"); // check memory leaks
 	return (0);
 }
