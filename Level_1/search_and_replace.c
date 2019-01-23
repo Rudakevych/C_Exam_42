@@ -1,5 +1,3 @@
-#include <unistd.h>
-
 /**
  * Task:
  *
@@ -32,14 +30,26 @@
 	eNcOre Un ExEmPle Pas Facile a Ecrire $
 */
 
-void	search_and_replace(char *str, char one, char two)
-{
+#include <unistd.h>
 
+void	search_and_replace(const char *str, char one, char two)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == one)
+			write(1, &two, 1);
+		else
+			write(1, &str[i], 1);
+		i++;
+	}
 }
 
 int 	main(int ac, char **av)
 {
-	if (ac == 4)
+	if (ac == 4 && av[2][1] == '\0' && av[3][1] == '\0')
 		search_and_replace(&av[1][0], av[2][0], av[3][0]);
 	write(1, "\n", 1);
 	return (0);
