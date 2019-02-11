@@ -76,7 +76,6 @@ void	rostring(char *str)
 		i++;
 	if (!(first_word = write_first_word(str, i)))
 		write(1, "ERROR: Can't allocate memory!", 29);
-	free(write_first_word(str, i));
 	while (str[i] != ' ' && str[i] != '\t')
 		i++;
 	while (str[i] == ' ' || str[i] == '\t')
@@ -107,7 +106,7 @@ void	rostring(char *str)
 
 int 	main(int ac, char **av)
 {
-	if (ac == 2)
+	if (ac >= 2)
 		rostring(av[1]);
 	write(1, "\n", 1);
 	return (0);
